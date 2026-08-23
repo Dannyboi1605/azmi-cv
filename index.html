@@ -44,6 +44,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <style>
+        html, body {
+            overflow-x: hidden !important;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        img, video, canvas, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-tap-highlight-color: transparent;
@@ -61,15 +79,6 @@
             touch-action: manipulation;
         }
 
-        /* Hide horizontal scrollbars for filter bar on mobile */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        
         /* Glassmorphism effects */
         .glass-panel {
             background: rgba(255, 255, 255, 0.05);
@@ -209,9 +218,9 @@
             </h1>
 
             <!-- Subtitle Dynamic Role Rotator -->
-            <p class="text-base sm:text-xl md:text-2xl text-slate-300 dark:text-slate-300 light:text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+            <p class="text-base sm:text-xl md:text-2xl text-slate-300 dark:text-slate-300 light:text-slate-600 max-w-3xl mx-auto font-light leading-relaxed break-words">
                 Hi, I'm <strong class="font-semibold text-cyan-400">Azmi Bin Razue</strong> — Final-Year IT (Multimedia Tech) Student specializing in 
-                <span id="role-text" class="font-semibold text-pink-400 border-b-2 border-pink-500/50 pb-0.5 inline-block">3D Animation (The Water Cycle FYP)</span>
+                <span id="role-text" class="font-semibold text-pink-400 border-b-2 border-pink-500/50 pb-0.5 inline-block max-w-full break-words">3D Animation (The Water Cycle FYP)</span>
             </p>
 
             <!-- CTA Buttons -->
@@ -355,13 +364,13 @@
                 Showcasing Final Year Project (FYP) 3D animation, award-winning IoT smart parking systems, web applications, and media leadership.
             </p>
 
-            <!-- Touch-Scrollable Horizontal Filter Pills for Mobile -->
-            <div class="w-full overflow-x-auto no-scrollbar py-3 px-1">
-                <div class="flex items-center justify-start sm:justify-center min-w-max gap-2 mx-auto" id="project-filters">
-                    <button class="filter-btn active px-4 py-2.5 rounded-xl text-xs font-semibold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 whitespace-nowrap min-h-[40px]" data-filter="all">All Projects</button>
-                    <button class="filter-btn px-4 py-2.5 rounded-xl text-xs font-semibold transition-all bg-slate-800/90 text-slate-300 hover:bg-slate-700 active:scale-95 whitespace-nowrap min-h-[40px]" data-filter="3d">3D & Animation</button>
-                    <button class="filter-btn px-4 py-2.5 rounded-xl text-xs font-semibold transition-all bg-slate-800/90 text-slate-300 hover:bg-slate-700 active:scale-95 whitespace-nowrap min-h-[40px]" data-filter="iot">IoT & Systems</button>
-                    <button class="filter-btn px-4 py-2.5 rounded-xl text-xs font-semibold transition-all bg-slate-800/90 text-slate-300 hover:bg-slate-700 active:scale-95 whitespace-nowrap min-h-[40px]" data-filter="web">Web & Media</button>
+            <!-- Wrapping Fluid Filter Pills for All Viewports -->
+            <div class="w-full py-3 px-1">
+                <div class="flex flex-wrap items-center justify-center gap-2 max-w-full" id="project-filters">
+                    <button class="filter-btn active px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs font-semibold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 whitespace-nowrap min-h-[40px]" data-filter="all">All Projects</button>
+                    <button class="filter-btn px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs font-semibold transition-all bg-slate-800/90 text-slate-300 hover:bg-slate-700 active:scale-95 whitespace-nowrap min-h-[40px]" data-filter="3d">3D & Animation</button>
+                    <button class="filter-btn px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs font-semibold transition-all bg-slate-800/90 text-slate-300 hover:bg-slate-700 active:scale-95 whitespace-nowrap min-h-[40px]" data-filter="iot">IoT & Systems</button>
+                    <button class="filter-btn px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl text-xs font-semibold transition-all bg-slate-800/90 text-slate-300 hover:bg-slate-700 active:scale-95 whitespace-nowrap min-h-[40px]" data-filter="web">Web & Media</button>
                 </div>
             </div>
         </div>
@@ -532,7 +541,7 @@
     </section>
 
     <!-- Experience & Education Timeline Section -->
-    <section id="timeline" class="py-16 sm:py-20 px-4 max-w-5xl mx-auto">
+    <section id="timeline" class="py-16 sm:py-20 px-4 max-w-5xl mx-auto overflow-hidden">
         <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
             <div class="inline-flex items-center gap-2 text-purple-400 font-bold text-xs uppercase tracking-widest">
                 <i class="fa-solid fa-graduation-cap"></i> Academic & Work Journey
@@ -543,7 +552,7 @@
             </p>
         </div>
 
-        <div class="relative border-l-2 border-slate-800 ml-3 sm:ml-32 space-y-8 sm:space-y-12">
+        <div class="relative border-l-2 border-slate-800 ml-3 sm:ml-36 space-y-8 sm:space-y-12">
             
             <!-- Timeline Item 1: Civil Defence -->
             <div class="relative pl-6 sm:pl-10">
@@ -551,14 +560,14 @@
                     <i class="fa-solid fa-shield-halved"></i>
                 </div>
                 <!-- Inline date badge on mobile, left column on desktop -->
-                <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right sm:w-28 text-xs font-bold text-cyan-400 mb-1 sm:mb-0">
+                <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right sm:w-32 text-xs font-bold text-cyan-400 mb-1 sm:mb-0">
                     <span class="inline-block sm:hidden px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 mb-1.5">2025 - 2026</span>
                     <span class="hidden sm:inline">2025 - 2026</span>
                 </div>
-                <div class="glass-panel p-4 sm:p-6 rounded-2xl border border-slate-800/80 space-y-2">
+                <div class="glass-panel p-4 sm:p-6 rounded-2xl border border-slate-800/80 space-y-2 min-w-0">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
-                        <h3 class="font-bold text-base sm:text-lg text-slate-100">Monitoring Assistant & Second Lieutenant (APM)</h3>
-                        <span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 font-semibold self-start sm:self-auto">APM Labuan Operations</span>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-100 break-words">Monitoring Assistant & Second Lieutenant (APM)</h3>
+                        <span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 font-semibold self-start sm:self-auto shrink-0">APM Labuan Operations</span>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
                         Promoted to Second Lieutenant (Leftenan Muda, APM) on 24 Nov 2025. Served as Lead Coordinator for SAR Mission in Labuan (25 Dec 2025), handling operational monitoring, communications, and field safety protocols.
@@ -571,14 +580,14 @@
                 <div class="absolute -left-[13px] sm:-left-[17px] top-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-purple-500/20 border-2 border-purple-400 text-purple-400 flex items-center justify-center text-[10px] sm:text-xs">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-                <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right sm:w-28 text-xs font-bold text-purple-400 mb-1 sm:mb-0">
+                <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right sm:w-32 text-xs font-bold text-purple-400 mb-1 sm:mb-0">
                     <span class="inline-block sm:hidden px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-400 mb-1.5">Expected 2026</span>
                     <span class="hidden sm:inline">Expected 2026</span>
                 </div>
-                <div class="glass-panel p-4 sm:p-6 rounded-2xl border border-slate-800/80 space-y-2">
+                <div class="glass-panel p-4 sm:p-6 rounded-2xl border border-slate-800/80 space-y-2 min-w-0">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
-                        <h3 class="font-bold text-base sm:text-lg text-slate-100">Bachelor of Information Technology with Honours (Multimedia Tech)</h3>
-                        <span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 self-start sm:self-auto">Universiti Malaysia Sabah</span>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-100 break-words">Bachelor of Information Technology with Honours (Multimedia Tech)</h3>
+                        <span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 self-start sm:self-auto shrink-0">Universiti Malaysia Sabah</span>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
                         Final-year student specializing in 3D Modeling/Animation, Web Technology, and IoT Integration. Completed Final Year Project (FYP): "3D Animation: The Water Cycle".
@@ -591,14 +600,14 @@
                 <div class="absolute -left-[13px] sm:-left-[17px] top-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-pink-500/20 border-2 border-pink-400 text-pink-400 flex items-center justify-center text-[10px] sm:text-xs">
                     <i class="fa-solid fa-cash-register"></i>
                 </div>
-                <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right sm:w-28 text-xs font-bold text-pink-400 mb-1 sm:mb-0">
+                <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right sm:w-32 text-xs font-bold text-pink-400 mb-1 sm:mb-0">
                     <span class="inline-block sm:hidden px-2.5 py-0.5 rounded-full bg-pink-500/10 text-pink-400 mb-1.5">2022 - 2026</span>
                     <span class="hidden sm:inline">2022 - 2026</span>
                 </div>
-                <div class="glass-panel p-4 sm:p-6 rounded-2xl border border-slate-800/80 space-y-2">
+                <div class="glass-panel p-4 sm:p-6 rounded-2xl border border-slate-800/80 space-y-2 min-w-0">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
-                        <h3 class="font-bold text-base sm:text-lg text-slate-100">Cashier & Stock Manager (Part-Time)</h3>
-                        <span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 self-start sm:self-auto">Kesumba Mini Market</span>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-100 break-words">Cashier & Stock Manager (Part-Time)</h3>
+                        <span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 self-start sm:self-auto shrink-0">Kesumba Mini Market</span>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
                         Managed point-of-sale transactions, cashier operations, inventory stocking, customer relations, and daily store accounting at UMS Labuan International Campus.
@@ -611,14 +620,14 @@
                 <div class="absolute -left-[13px] sm:-left-[17px] top-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-amber-500/20 border-2 border-amber-400 text-amber-400 flex items-center justify-center text-[10px] sm:text-xs">
                     <i class="fa-solid fa-video"></i>
                 </div>
-                <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right sm:w-28 text-xs font-bold text-amber-400 mb-1 sm:mb-0">
+                <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right sm:w-32 text-xs font-bold text-amber-400 mb-1 sm:mb-0">
                     <span class="inline-block sm:hidden px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-400 mb-1.5">2021 - 2025</span>
                     <span class="hidden sm:inline">2021 - 2025</span>
                 </div>
-                <div class="glass-panel p-4 sm:p-6 rounded-2xl border border-slate-800/80 space-y-2">
+                <div class="glass-panel p-4 sm:p-6 rounded-2xl border border-slate-800/80 space-y-2 min-w-0">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
-                        <h3 class="font-bold text-base sm:text-lg text-slate-100">Seasonal Security Guard</h3>
-                        <span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 self-start sm:self-auto">NSH Security</span>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-100 break-words">Seasonal Security Guard</h3>
+                        <span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-full bg-slate-800 text-slate-300 self-start sm:self-auto shrink-0">NSH Security</span>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
                         Monitored real-time CCTV surveillance feeds, managed parking lot logistics, conducted safety checks, and ensured security procedures during academic breaks.
@@ -631,14 +640,14 @@
                 <div class="absolute -left-[13px] sm:-left-[17px] top-1 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-400 flex items-center justify-center text-[10px] sm:text-xs">
                     <i class="fa-solid fa-award"></i>
                 </div>
-                <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right sm:w-28 text-xs font-bold text-emerald-400 mb-1 sm:mb-0">
+                <div class="sm:absolute sm:-left-36 sm:top-1 sm:text-right sm:w-32 text-xs font-bold text-emerald-400 mb-1 sm:mb-0">
                     <span class="inline-block sm:hidden px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 mb-1.5">2020 - 2022</span>
                     <span class="hidden sm:inline">2020 - 2022</span>
                 </div>
-                <div class="glass-panel p-4 sm:p-6 rounded-2xl border border-slate-800/80 space-y-2">
+                <div class="glass-panel p-4 sm:p-6 rounded-2xl border border-slate-800/80 space-y-2 min-w-0">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
-                        <h3 class="font-bold text-base sm:text-lg text-slate-100">Sijil Tinggi Persekolahan Malaysia (STPM)</h3>
-                        <span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-bold self-start sm:self-auto">CGPA 3.50</span>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-100 break-words">Sijil Tinggi Persekolahan Malaysia (STPM)</h3>
+                        <span class="text-[11px] sm:text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-bold self-start sm:self-auto shrink-0">CGPA 3.50</span>
                     </div>
                     <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
                         Tingkatan Enam, SMK Kunak, Sabah. Graduated with an outstanding CGPA of 3.50 before entering Universiti Malaysia Sabah.
@@ -815,7 +824,7 @@
 
     <!-- Project Details Modal Dialog -->
     <div id="project-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="glass-panel max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-700 shadow-2xl relative space-y-5 my-auto">
+        <div class="glass-panel max-w-2xl w-full max-w-[calc(100vw-1.5rem)] max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-slate-700 shadow-2xl relative space-y-5 my-auto">
             <button id="close-modal-btn" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-800 text-slate-300 hover:text-white active:scale-90 flex items-center justify-center min-w-[36px] min-h-[36px]" aria-label="Close modal">
                 <i class="fa-solid fa-xmark text-sm sm:text-base"></i>
             </button>
@@ -825,25 +834,25 @@
             </div>
 
             <div>
-                <h3 id="modal-title" class="font-bold text-xl sm:text-2xl text-slate-100">Project Title</h3>
-                <p id="modal-role" class="text-xs text-indigo-400 font-semibold mt-1">Role / Position</p>
+                <h3 id="modal-title" class="font-bold text-xl sm:text-2xl text-slate-100 break-words">Project Title</h3>
+                <p id="modal-role" class="text-xs text-indigo-400 font-semibold mt-1 break-words">Role / Position</p>
             </div>
 
             <!-- 3D Interactive Model Preview inside Modal -->
             <div class="relative h-36 sm:h-48 bg-slate-900 rounded-xl sm:rounded-2xl overflow-hidden border border-slate-800 flex items-center justify-center">
-                <canvas id="modal-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing"></canvas>
+                <canvas id="modal-3d-canvas" class="w-full h-full cursor-grab active:cursor-grabbing max-w-full"></canvas>
                 <div class="absolute bottom-2 right-2 sm:right-3 text-[9px] sm:text-[10px] text-slate-400 bg-slate-950/80 px-2 py-0.5 rounded">
                     Interactive 3D Preview (Drag to Rotate)
                 </div>
             </div>
 
-            <p id="modal-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <p id="modal-desc" class="text-xs sm:text-sm text-slate-300 leading-relaxed break-words">
                 Project description details...
             </p>
 
             <div class="pt-2 border-t border-slate-800">
                 <span class="text-xs font-semibold text-slate-400">Tools & Technologies:</span>
-                <p id="modal-tools" class="text-xs text-cyan-400 font-mono mt-0.5">Tools list</p>
+                <p id="modal-tools" class="text-xs text-cyan-400 font-mono mt-0.5 break-words">Tools list</p>
             </div>
 
             <div class="flex justify-end gap-3 pt-1">
@@ -856,16 +865,16 @@
 
     <!-- Resume Modal Dialog -->
     <div id="resume-modal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
-        <div class="glass-panel max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl p-5 sm:p-8 border border-slate-700 shadow-2xl relative space-y-5 my-auto">
+        <div class="glass-panel max-w-2xl w-full max-w-[calc(100vw-1.5rem)] max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl p-4 sm:p-8 border border-slate-700 shadow-2xl relative space-y-5 my-auto">
             <button id="close-resume-btn" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-800 text-slate-300 hover:text-white active:scale-90 flex items-center justify-center min-w-[36px] min-h-[36px]" aria-label="Close resume modal">
                 <i class="fa-solid fa-xmark text-sm sm:text-base"></i>
             </button>
 
-            <div class="flex items-center gap-3 pr-8">
+            <div class="flex items-center gap-3 pr-8 min-w-0">
                 <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-red-500/20 text-red-400 flex items-center justify-center text-lg sm:text-xl flex-shrink-0">
                     <i class="fa-solid fa-file-pdf"></i>
                 </div>
-                <div class="truncate">
+                <div class="min-w-0 flex-1">
                     <h3 class="font-bold text-base sm:text-xl text-slate-100 truncate">AZMI_BIN_RAZUE_RESUME_2026.pdf</h3>
                     <p class="text-[11px] sm:text-xs text-slate-400 truncate">Universiti Malaysia Sabah • Updated 2026</p>
                 </div>
@@ -873,12 +882,12 @@
 
             <div class="bg-slate-900 p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-slate-800 space-y-3 text-xs sm:text-sm text-slate-300">
                 <div class="font-bold text-slate-100 border-b border-slate-800 pb-2">Resume Overview:</div>
-                <ul class="list-disc pl-4 sm:pl-5 space-y-2 text-slate-400 text-xs sm:text-sm">
+                <ul class="list-disc pl-4 sm:pl-5 space-y-2 text-slate-400 text-xs sm:text-sm break-words">
                     <li><strong>Education:</strong> Bachelor of Information Technology with Honours (Multimedia Technology), UMS (Graduating 2026)</li>
                     <li><strong>Pre-U:</strong> STPM, SMK Kunak, Sabah (CGPA 3.50)</li>
                     <li><strong>FYP Project:</strong> 3D Animation: The Water Cycle (Blender)</li>
                     <li><strong>Achievements:</strong> Champion IoT Competition (Group 10 - Smart Parking), Second Lieutenant (Leftenan Muda) APM, Lead Coordinator SAR Mission</li>
-                    <li><strong>Key Skills:</strong> Blender, CapCut, Filmora, Canva, Arduino Uno, MS Office, Adobe Dreamweaver</li>
+                    <li><strong>Key Skills:</strong> Blender, Canva, CapCut, Filmora, Arduino Uno, MS Office, Adobe Dreamweaver</li>
                 </ul>
             </div>
 
